@@ -1,12 +1,9 @@
-﻿using ManageYourBudget.DataAccessLayer;
-using ManageYourBudget.DataAccessLayer.Models;
+﻿using ManageYourBudget.DataAccessLayer.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
 
-namespace ManageYourBudget.BusinessLogicLayer.Concrete
+namespace ManageYourBudget.BusinessLogicLayer.IdentityWrappers
 {
     public class ApplicationUserManager : UserManager<User>
     {
@@ -20,7 +17,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             UserLockoutEnabledByDefault = false;
 
             UserTokenProvider =
-                    new DataProtectorTokenProvider<User>(new DpapiDataProtectionProvider().Create("ASP.NET Identity"));
+                new DataProtectorTokenProvider<User>(new DpapiDataProtectionProvider().Create("ASP.NET Identity"));
         }
 
         private void CreatePasswordValidator()
@@ -42,23 +39,6 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
-        }
-    }
-
-
-    public class ApplicationSignInManager : SignInManager<User, string>
-    {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
-    }
-
-    public class ApplicationUserStore : UserStore<User>
-    {
-        public ApplicationUserStore(ApplicationDbContext context)
-            : base(context)
-        {
         }
     }
 }

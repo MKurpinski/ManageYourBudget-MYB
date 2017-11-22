@@ -1,5 +1,6 @@
 ﻿using System;
 using ManageYourBudget.BusinessLogicLayer.Concrete;
+using ManageYourBudget.BusinessLogicLayer.IdentityWrappers;
 using ManageYourBudget.Configs;
 using ManageYourBudget.DataAccessLayer.Models;
 using Microsoft.AspNet.Identity;

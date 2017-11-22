@@ -38,7 +38,11 @@ namespace ManageYourBudget.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "First Name")]
+        [Required]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
+        [Required]
         public string LastName { get; set; }
 
         [Required]

@@ -8,8 +8,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Profiles
     {
         public BusinessLogicProfile()
         {
-            CreateMap<RegisterUserDto, User>();
-            CreateMap<User, RegisterUserDto>();
+            CreateMap<RegisterUserDto, User>().ForMember(dest => dest.UserName, opts => opts.MapFrom(src => src.Email));
         }
     }
 }

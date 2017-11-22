@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using ManageYourBudget.Settings;
+using ManageYourBudget.BusinessLogicLayer.Settings;
 using Microsoft.Owin.Security.Facebook;
 using Owin;
 

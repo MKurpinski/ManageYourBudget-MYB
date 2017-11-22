@@ -5,6 +5,8 @@ using Autofac.Integration.Mvc;
 using AutoMapper;
 using ManageYourBudget.BusinessLogicLayer;
 using ManageYourBudget.BusinessLogicLayer.Concrete;
+using ManageYourBudget.BusinessLogicLayer.IdentityWrappers;
+using ManageYourBudget.BusinessLogicLayer.Interfaces;
 using ManageYourBudget.DataAccessLayer;
 using ManageYourBudget.DataAccessLayer.Models;
 using Microsoft.AspNet.Identity;

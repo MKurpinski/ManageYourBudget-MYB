@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ManageYourBudget.DataAccessLayer.Models;
 using ManageYourBudget.Dtos.Auth;
 using ManageYourBudget.Models;
 

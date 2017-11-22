@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using Facebook;
+using ManageYourBudget.BusinessLogicLayer.IdentityWrappers;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
+using ManageYourBudget.BusinessLogicLayer.Settings;
 using ManageYourBudget.DataAccessLayer.Models;
 using ManageYourBudget.Dtos.Auth;
 using Microsoft.AspNet.Identity;
@@ -50,13 +52,12 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
         public Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto registerUserDto, string password)
         {
             var user = _mapper.Map<User>(registerUserDto);
-            user.UserName = user.Email;
             return _userManager.CreateAsync(user, password);
         }
 
-        public async Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo, string facebookTokenClaim, string facebookQuery)
+        public async Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo)
         {
-            var user = GetUserDataFromFacebook(loginInfo, facebookTokenClaim, facebookQuery);
+            var user = GetUserDataFromFacebook(loginInfo, FacebookSettings.FacebookTokenClaim, FacebookSettings.FacebookQuery);
 
             var userFromDb = await GetUserByEmailAsync(user.Email);
 

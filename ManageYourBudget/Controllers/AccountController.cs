@@ -2,14 +2,12 @@
 using System.Web.Mvc;
 using AutoMapper;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
-using ManageYourBudget.DataAccessLayer.Models;
 using ManageYourBudget.Dtos.Auth;
 using ManageYourBudget.ExternalLogins;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ManageYourBudget.Models;
-using ManageYourBudget.Settings;
 
 namespace ManageYourBudget.Controllers
 {
@@ -109,7 +107,7 @@ namespace ManageYourBudget.Controllers
                 return RedirectToLocal(returnUrl);
             }
 
-            await _authService.LogInOrRegisterUserAsync(loginInfo, FacebookSettings.FacebookTokenClaim, FacebookSettings.FacebookQuery);
+            await _authService.LogInOrRegisterUserAsync(loginInfo);
 
             return RedirectToAction("Index", "Home");
         }

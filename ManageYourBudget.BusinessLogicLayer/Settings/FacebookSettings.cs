@@ -1,4 +1,4 @@
-﻿namespace ManageYourBudget.Settings
+﻿namespace ManageYourBudget.BusinessLogicLayer.Settings
 {
     public static class FacebookSettings
     {

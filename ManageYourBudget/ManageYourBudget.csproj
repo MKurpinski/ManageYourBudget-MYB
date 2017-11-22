@@ -219,7 +219,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Profiles\WebMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\FacebookSettings.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

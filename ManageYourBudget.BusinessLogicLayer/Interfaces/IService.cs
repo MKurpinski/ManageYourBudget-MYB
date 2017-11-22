@@ -1,4 +1,4 @@
-﻿namespace ManageYourBudget.BusinessLogicLayer
+﻿namespace ManageYourBudget.BusinessLogicLayer.Interfaces
 {
     public interface IService
     {

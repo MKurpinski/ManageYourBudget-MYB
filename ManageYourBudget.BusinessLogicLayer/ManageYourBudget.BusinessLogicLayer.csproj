@@ -74,6 +74,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
@@ -87,12 +88,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdentityWrappers\ApplicationSigInManager.cs" />
+    <Compile Include="IdentityWrappers\ApplicationUserManager.cs" />
     <Compile Include="Concrete\AuthService.cs" />
-    <Compile Include="Concrete\IdentityConfig.cs" />
+    <Compile Include="IdentityWrappers\ApplicationUserStore.cs" />
     <Compile Include="Interfaces\IAuthService.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Profiles\BusinessLogicProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FacebookSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

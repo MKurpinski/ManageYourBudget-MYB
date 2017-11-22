@@ -17,6 +17,6 @@ namespace ManageYourBudget.BusinessLogicLayer.Interfaces
         Task<SignInStatus> ExternalSignInAsync(ExternalLoginInfo loginInfo);
         Task SignUserAsync(RegisterUserDto user);
         Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto user, string password);
-        Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo, string facebookTokenClaim, string facebookQuery);
+        Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo);
     }
 }

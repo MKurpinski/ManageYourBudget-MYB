@@ -22,7 +22,7 @@ namespace ManageYourBudget.Controllers
             _mapper = mapper;
         }
 
-        public ActionResult Index(DateTime? @from, DateTime? to)
+        public ActionResult Index(DateTime? from, DateTime? to)
         {
             var expendituresDto = _expenditureService.GetUserExpendituresFromRange(User.Identity.GetUserId(), from, to);
             var allCategories = _categoryService.GetCategories();

@@ -79,7 +79,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
 
         private async Task CreateExternalUser(ExternalLoginInfo loginInfo, User user)
         {
-            await _userManager.CreateAsync(user);
+            var user2 = await _userManager.CreateAsync(user);
             await _userManager.AddLoginAsync(user.Id, loginInfo.Login);
         }
 
@@ -94,7 +94,8 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             {
                 FirstName = userInfo[FIRSTNAME_KEY],
                 Email = userInfo[EMAIL_KEY],
-                LastName = userInfo[LASTNAME_KEY]
+                LastName = userInfo[LASTNAME_KEY],
+                UserName = userInfo[EMAIL_KEY]
             };
             return user;
         }

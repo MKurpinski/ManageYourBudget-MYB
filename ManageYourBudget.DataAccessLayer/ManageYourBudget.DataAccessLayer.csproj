@@ -61,12 +61,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Concrete\CategoryRepository.cs" />
+    <Compile Include="Concrete\ExpenditureRepository.cs" />
+    <Compile Include="Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\IExpenditureRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\201711220855473_initial.cs" />
     <Compile Include="Migrations\201711220855473_initial.Designer.cs">
       <DependentUpon>201711220855473_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711230749511_expenditures.cs" />
+    <Compile Include="Migrations\201711230749511_expenditures.Designer.cs">
+      <DependentUpon>201711230749511_expenditures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Expenditure.cs" />
+    <Compile Include="Models\ExpenditureCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\User.cs" />
   </ItemGroup>
@@ -78,6 +88,10 @@
     <EmbeddedResource Include="Migrations\201711220855473_initial.resx">
       <DependentUpon>201711220855473_initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711230749511_expenditures.resx">
+      <DependentUpon>201711230749511_expenditures.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

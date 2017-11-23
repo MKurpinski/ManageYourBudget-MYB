@@ -1,3 +1,5 @@
+using ManageYourBudget.DataAccessLayer.Models;
+
 namespace ManageYourBudget.DataAccessLayer.Migrations
 {
     using System;
@@ -14,18 +16,16 @@ namespace ManageYourBudget.DataAccessLayer.Migrations
 
         protected override void Seed(ManageYourBudget.DataAccessLayer.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+                context.Categories.AddOrUpdate(
+                  p => p.Name,
+                  new ExpenditureCategory { Name = "Bill" },
+                  new ExpenditureCategory { Name = "Eating" },
+                  new ExpenditureCategory { Name = "Car" },
+                  new ExpenditureCategory { Name = "Entertainment" },
+                  new ExpenditureCategory { Name = "Education" },
+                  new ExpenditureCategory { Name = "Other" }
+                );
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }

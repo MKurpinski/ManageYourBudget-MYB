@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ManageYourBudget.DataAccessLayer;
-using ManageYourBudget.DataAccessLayer.Models;
+﻿using System.Threading.Tasks;
 using ManageYourBudget.Dtos.Auth;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

@@ -43,6 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\RegisterUserDto.cs" />
+    <Compile Include="DateRangeDto.cs" />
+    <Compile Include="Expenditure\EditExpenditureDto.cs" />
+    <Compile Include="Expenditure\AddExpenditureDto.cs" />
+    <Compile Include="Expenditure\ExpenditureCategoryDto.cs" />
+    <Compile Include="Expenditure\ExpenditureDto.cs" />
+    <Compile Include="Expenditure\ExpendituresDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

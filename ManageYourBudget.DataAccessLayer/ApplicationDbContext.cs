@@ -1,4 +1,5 @@
-﻿using ManageYourBudget.DataAccessLayer.Models;
+﻿using System.Data.Entity;
+using ManageYourBudget.DataAccessLayer.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ManageYourBudget.DataAccessLayer
@@ -9,5 +10,8 @@ namespace ManageYourBudget.DataAccessLayer
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Expenditure> Expenditures { get; set; }
+        public DbSet<ExpenditureCategory> Categories { get; set; }
     }
 }

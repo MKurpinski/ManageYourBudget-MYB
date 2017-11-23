@@ -88,11 +88,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\CategoryService.cs" />
+    <Compile Include="Concrete\DataService.cs" />
+    <Compile Include="Concrete\ExpenditureService.cs" />
+    <Compile Include="Interfaces\ICategoryService.cs" />
+    <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="IdentityWrappers\ApplicationSigInManager.cs" />
     <Compile Include="IdentityWrappers\ApplicationUserManager.cs" />
     <Compile Include="Concrete\AuthService.cs" />
     <Compile Include="IdentityWrappers\ApplicationUserStore.cs" />
     <Compile Include="Interfaces\IAuthService.cs" />
+    <Compile Include="Interfaces\IExpenditureService.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Profiles\BusinessLogicProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

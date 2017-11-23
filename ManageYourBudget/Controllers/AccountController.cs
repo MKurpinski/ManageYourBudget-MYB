@@ -11,7 +11,6 @@ using ManageYourBudget.Models;
 
 namespace ManageYourBudget.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly IAuthService _authService;
@@ -79,7 +78,7 @@ namespace ManageYourBudget.Controllers
             }
 
             await _authService.SignUserAsync(user);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Expenditure");
         }
 
         [HttpPost]
@@ -109,7 +108,7 @@ namespace ManageYourBudget.Controllers
 
             await _authService.LogInOrRegisterUserAsync(loginInfo);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Expenditure");
         }
 
         [HttpPost]
@@ -117,7 +116,7 @@ namespace ManageYourBudget.Controllers
         public ActionResult LogOff()
         {
             _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Expenditure");
         }
 
         private ActionResult RedirectToLocal(string returnUrl)
@@ -126,7 +125,7 @@ namespace ManageYourBudget.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Expenditure");
         }
     }
 }

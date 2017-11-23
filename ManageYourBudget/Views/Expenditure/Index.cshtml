@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model ManageYourBudget.Models.ExpendituresViewModel
+
+@using (Html.BeginForm("Index", "Expenditure", FormMethod.Post))
+{
+    <div class="container">
+        <div><h1 class="text-center">List of your expenditures</h1></div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4"  style="padding-left: 0">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.ExpendituresDto.From, new { @id = "from", @class = "form-control datepicker input-lg", @Value = Model.ExpendituresDto.To.ToShortDateString() })
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <input type="submit" class="btn btn-info input-lg" value="Filter date range" />
+            </div>
+            <div class="col-md-4">
+                <div class="input-group pull-right">
+                    @Html.TextBoxFor(m => m.ExpendituresDto.To, new { @id = "to", @class = "form-control datepicker input-lg pull-right", @Value = Model.ExpendituresDto.To.ToShortDateString() })
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+}
+
+@if (Model.ExpendituresDto.Expenditures.Count > 0)
+{
+    <table id="table" class="table table-condensed  table-hover">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Category</th>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var expenditure in Model.ExpendituresDto.Expenditures)
+        {
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="text-danger text-center">There is not any expenditures in this range of time!</h1>
+}
+
+@section topScripts
+{
+    <link href="~/Content/DateRanges.css" rel="stylesheet" />   
+}
+@section scripts
+{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="~/Scripts/datepickerConfig.js"></script>
+}

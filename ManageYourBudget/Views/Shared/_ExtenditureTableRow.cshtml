@@ -1,0 +1,18 @@
+﻿@model ManageYourBudget.Dtos.Expenditure.ExpenditureDto
+
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Amount $</td>
+    <td>@Model.Date.ToShortDateString()</td>
+    <td>@Model.Category.Name</td>
+    <td>
+        <a href="@Url.Action("Edit", "Expenditure", new { id = Model.Id} )">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </a>
+    </td>
+    <td>
+        <a href="@Url.Action("Index", "Expenditure")">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </a>
+    </td>
+</tr>

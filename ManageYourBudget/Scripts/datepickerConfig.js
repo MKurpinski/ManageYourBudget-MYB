@@ -1,27 +1,31 @@
 ﻿$(function () {
-    $(".datepicker")
-        .datepicker({
-        });
+    if($(".datepicker").datepicker) {
+        $(".datepicker")
+            .datepicker({
+            });   
+    }
 
     $(function () {
-        var dateFormat = "mm/dd/yy";
-        var from = $("#from")
-            .datepicker({
-                dateFormat: dateFormat
-            })
-            .on("change",
-                function () {
-                    to.datepicker("option", "minDate", getDate(this));
-                });
+        if ($("#from").datepicker) {
+            var dateFormat = "mm/dd/yy";
+            var from = $("#from")
+                .datepicker({
+                    dateFormat: dateFormat
+                })
+                .on("change",
+                    function () {
+                        to.datepicker("option", "minDate", getDate(this));
+                    });
 
-        var to = $("#to")
-            .datepicker({
-                dateFormat: dateFormat
-            })
-            .on("change",
-                function () {
-                    from.datepicker("option", "maxDate", getDate(this));
-                });
+            var to = $("#to")
+                .datepicker({
+                    dateFormat: dateFormat
+                })
+                .on("change",
+                    function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });   
+        }
 
         function getDate(element) {
             var date;

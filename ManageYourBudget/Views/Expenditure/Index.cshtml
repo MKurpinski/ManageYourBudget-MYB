@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-4 text-center">
-                <input type="submit" class="btn btn-info input-lg" value="Filter date range" />
+                <input type="submit" class="btn btn-default button-full input-lg" value="Filter date range" />
             </div>
             <div class="col-md-4">
                 <div class="input-group pull-right">
@@ -63,12 +63,14 @@ else
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="~/Scripts/datepickerConfig.js"></script>
     <script>
         $(document)
             .ready(function () {
                 $('#table')
                     .DataTable({
+                        "columnDefs": [
+                            { targets: [4, 5], sortable: false}
+                        ],
                         "bStateSave": true,
                         "fnStateSave": function (oSettings, oData) {
                             localStorage.setItem( 'DataTables', JSON.stringify(oData) );

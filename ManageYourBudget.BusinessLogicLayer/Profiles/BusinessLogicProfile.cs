@@ -15,6 +15,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Profiles
             CreateMap<AddExpenditureDto, Expenditure>();
             CreateMap<Expenditure, EditExpenditureDto>();
             CreateMap<EditExpenditureDto, Expenditure>();
+            CreateMap<User, UserDto>();
         }
     }
 }

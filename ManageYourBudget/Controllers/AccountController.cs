@@ -11,6 +11,7 @@ using ManageYourBudget.Models;
 
 namespace ManageYourBudget.Controllers
 {
+
     public class AccountController : Controller
     {
         private readonly IAuthService _authService;
@@ -25,7 +26,6 @@ namespace ManageYourBudget.Controllers
         }
 
 
-        [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -33,7 +33,6 @@ namespace ManageYourBudget.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
@@ -53,14 +52,12 @@ namespace ManageYourBudget.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -77,19 +74,16 @@ namespace ManageYourBudget.Controllers
                 return View(model);
             }
 
-            await _authService.SignUserAsync(user);
-            return RedirectToAction("Index", "Expenditure");
+            return RedirectToAction("Login");
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await _authenticationManager.GetExternalLoginInfoAsync();

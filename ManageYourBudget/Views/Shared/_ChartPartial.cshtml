@@ -1,0 +1,12 @@
+﻿@using Chart.Mvc.Extensions
+@using Chart.Mvc.SimpleChart
+@model IList<SimpleData>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
+
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script type="text/javascript">
+    var ctx = document.getElementById("myCanvas").getContext("2d");
+    var data = @Html.Raw(Model.ToJson());
+    new Chart(ctx).Doughnut(data, {});
+</script>

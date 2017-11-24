@@ -1,0 +1,49 @@
+﻿@model ManageYourBudget.Dtos.Expenditure.ExpenditureDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center">@ViewBag.Title</h2>
+        <hr/>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.LabelFor(m => m.Title)</div>
+            <div class="panel-body">@Html.DisplayFor(m => m.Title)</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.LabelFor(m => m.Description)</div>
+            <div class="panel-body">@Html.DisplayFor(m => m.Description)</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.LabelFor(m => m.Amount)</div>
+            <div class="panel-body text-center">@Html.DisplayFor(m => m.Amount) $</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.LabelFor(m => m.Date)</div>
+            <div class="panel-body text-center">@Model.Date.ToShortDateString()</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.LabelFor(m => m.Date)</div>
+            <div class="panel-body text-center">@Model.Date.ToShortDateString()</div>
+        </div>     
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">@Html.Label("Category")</div>
+            <div class="panel-body text-center">@Model.Category.Name</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @using (Html.BeginForm("Delete", "Expenditure", FormMethod.Post, new {@class = "button-full"}))
+                {
+                    @Html.HiddenFor(m => m.Id)
+                    <input onclick="return confirm('Are you sure?');" type="submit" value="Delete" class="btn btn-danger button-full"/>
+                }
+            </div>
+            <div class="col-md-6">
+                @Html.ActionLink("Go to edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-default button-full"})
+            </div>
+        </div>
+    </div>
+</div>

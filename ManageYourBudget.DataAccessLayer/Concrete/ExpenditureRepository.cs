@@ -37,7 +37,18 @@ namespace ManageYourBudget.DataAccessLayer.Concrete
 
         public Expenditure Get(int id)
         {
-            return _dbContext.Expenditures.SingleOrDefault(x => x.Id == id);
+            return _dbContext.Expenditures.Include(x=>x.Category).SingleOrDefault(x => x.Id == id);
+        }
+
+        public void Delete(int id)
+        {
+            var expenditureToDelete = Get(id);
+            if (expenditureToDelete == null)
+            {
+                return;
+            }
+            _dbContext.Expenditures.Remove(expenditureToDelete);
+            _dbContext.SaveChanges();
         }
     }
 }

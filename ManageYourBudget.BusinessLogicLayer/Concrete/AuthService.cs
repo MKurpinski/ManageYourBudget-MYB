@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using AutoMapper;
 using Facebook;
@@ -71,6 +73,13 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             }
         }
 
+        public UserDto GetUserData(string id)
+        {
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
+            var userDto = _mapper.Map<UserDto>(user);
+            return userDto;
+        }
+
         private async Task SignInExternalUser(ExternalLoginInfo loginInfo, User userFromDb)
         {
             await SignUserAsync(userFromDb);
@@ -79,7 +88,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
 
         private async Task CreateExternalUser(ExternalLoginInfo loginInfo, User user)
         {
-            var user2 = await _userManager.CreateAsync(user);
+            await _userManager.CreateAsync(user);
             await _userManager.AddLoginAsync(user.Id, loginInfo.Login);
         }
 

@@ -6,6 +6,19 @@
 .custom-navbar {
     background: lightgrey;
 }
+
+.remember-container {
+    margin-left: 20px;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.input-date {
+    max-width: 125px;
+}
+
 .navbar-brand {
     color: white !important;
     background-color: black;
@@ -27,8 +40,14 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.button-full {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.right {
+    text-align: right;
 }

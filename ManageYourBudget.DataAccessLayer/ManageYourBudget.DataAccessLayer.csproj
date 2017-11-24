@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201711230749511_expenditures.Designer.cs">
       <DependentUpon>201711230749511_expenditures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241111084_ChangeCategory.cs" />
+    <Compile Include="Migrations\201711241111084_ChangeCategory.Designer.cs">
+      <DependentUpon>201711241111084_ChangeCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Expenditure.cs" />
     <Compile Include="Models\ExpenditureCategory.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711230749511_expenditures.resx">
       <DependentUpon>201711230749511_expenditures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241111084_ChangeCategory.resx">
+      <DependentUpon>201711241111084_ChangeCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

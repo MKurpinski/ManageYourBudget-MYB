@@ -67,11 +67,17 @@ namespace ManageYourBudget.Controllers
 
         public ActionResult Edit(int id)
         {
-            var expenditureToEdit = _expenditureService.GetExpenditure(id);
+            var expenditureToEdit = _expenditureService.GetExpenditureToEdit(id);
             var allCategories = _categoryService.GetCategories();
             var expenditureViewModel = _mapper.Map<EditExpenditureViewModel>(expenditureToEdit);
             expenditureViewModel.Categories = allCategories;
             return View(expenditureViewModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var expenditure = _expenditureService.GetExpenditure(id);
+            return View(expenditure);
         }
 
         [HttpPost]
@@ -86,6 +92,13 @@ namespace ManageYourBudget.Controllers
             _expenditureService.EditExpenditure(expenditureDto);
 
             return RedirectToAction("Index", new { from = model.Date });
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            _expenditureService.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

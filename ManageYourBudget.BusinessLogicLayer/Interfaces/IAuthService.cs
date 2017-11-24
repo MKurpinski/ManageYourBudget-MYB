@@ -12,5 +12,6 @@ namespace ManageYourBudget.BusinessLogicLayer.Interfaces
         Task SignUserAsync(RegisterUserDto user);
         Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto user, string password);
         Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo);
+        UserDto GetUserData(string getUserId);
     }
 }

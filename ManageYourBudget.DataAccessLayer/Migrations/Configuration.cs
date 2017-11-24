@@ -1,3 +1,4 @@
+using System.Drawing;
 using ManageYourBudget.DataAccessLayer.Models;
 
 namespace ManageYourBudget.DataAccessLayer.Migrations
@@ -18,12 +19,34 @@ namespace ManageYourBudget.DataAccessLayer.Migrations
         {
                 context.Categories.AddOrUpdate(
                   p => p.Name,
-                  new ExpenditureCategory { Name = "Bill" },
-                  new ExpenditureCategory { Name = "Eating" },
-                  new ExpenditureCategory { Name = "Car" },
-                  new ExpenditureCategory { Name = "Entertainment" },
-                  new ExpenditureCategory { Name = "Education" },
-                  new ExpenditureCategory { Name = "Other" }
+                  new ExpenditureCategory
+                  {
+                      Name = "Bill",
+                      ChartColor = ColorTranslator.ToHtml(Color.Aqua)
+                  },
+                  new ExpenditureCategory
+                  {
+                      Name = "Eating",
+                      ChartColor = ColorTranslator.ToHtml(Color.Green)
+                  },
+                  new ExpenditureCategory
+                  {
+                      Name = "Car",
+                      ChartColor = ColorTranslator.ToHtml(Color.Black)
+                  },
+                  new ExpenditureCategory
+                  {
+                      Name = "Entertainment",
+                      ChartColor = ColorTranslator.ToHtml(Color.Chocolate)
+                  },
+                  new ExpenditureCategory
+                  {
+                      Name = "Education",
+                      ChartColor = ColorTranslator.ToHtml(Color.Red)
+                  },
+                  new ExpenditureCategory { Name = "Other",
+                      ChartColor = ColorTranslator.ToHtml(Color.RoyalBlue)
+                  }
                 );
 
         }

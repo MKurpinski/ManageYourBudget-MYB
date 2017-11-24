@@ -14,5 +14,6 @@ namespace ManageYourBudget.DataAccessLayer.Interfaces
         void AddExpenditure(Expenditure expenditure);
         void UpdateExpenditure(Expenditure expenditure);
         Expenditure Get(int id);
+        void Delete(int id);
     }
 }

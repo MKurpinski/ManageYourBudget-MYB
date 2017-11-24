@@ -1,0 +1,13 @@
+﻿@model ManageYourBudget.Dtos.Statistics.StatisticsDto
+
+<h3>Sum of expenditures: <strong>@Model.SumOfExpenditures $</strong></h3>
+<h3>Number of expenditures: <strong>@Model.ExpidituresCount</strong></h3>
+@if (Model.MostExpensiveExpenditures.Count > 0)
+{
+    <h3>The @Model.MostExpensiveExpenditures.Count most expensive expenditures</h3>
+    foreach (var expenditure in @Model.MostExpensiveExpenditures)
+    {
+        <h4>@Html.ActionLink(@expenditure.Title, "Details", "Expenditure", new { id = expenditure.Id }, null) : @expenditure.Amount $</h4>
+    }
+}
+

@@ -1,0 +1,50 @@
+﻿@model ManageYourBudget.Dtos.DateRangeDto
+
+@{
+    ViewBag.Title = "Statistics";
+}
+
+@using (Html.BeginForm("Index", "Statistic", FormMethod.Post))
+{
+    <div class="container">
+        <div>
+            <h1 class="text-center">Statistics</h1>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4 no-padding-left">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.From, new { @id = "from", @class = "form-control datepicker input-lg input-date", @Value = Model.From.ToShortDateString() })
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <input type="submit" class="btn btn-default button-full input-lg" value="Choose date range" />
+            </div>
+            <div class="col-md-4">
+                <div class="input-group pull-right">
+                    @Html.TextBoxFor(m => m.To, new { @id = "to", @class = "form-control datepicker input-lg pull-right input-date", @Value = Model.To.ToShortDateString() })
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <br />
+    <div class="row">
+        <div class="col-md-5">
+            @{
+                Html.RenderAction("GetStatistics", new { dataRange = Model });
+            }
+        </div>
+        <div class="col-md-7">
+            @{
+                Html.RenderAction("GetDataForChart", new { dataRange = Model });
+            }
+        </div>
+    </div>
+}
+@section scripts
+{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>\
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="~/Scripts/datepickerConfig.js"></script>
+}

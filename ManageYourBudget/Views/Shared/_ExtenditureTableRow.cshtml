@@ -1,12 +1,12 @@
 ﻿@model ManageYourBudget.Dtos.Expenditure.ExpenditureDto
 
-<tr>
+<tr title="Click to see details!" onclick="location.href = '@Url.Action("Details","Expenditure", new { id = Model.Id})'">
     <td>@Model.Title</td>
     <td>@Model.Amount $</td>
     <td>@Model.Date.ToShortDateString()</td>
     <td>@Model.Category.Name</td>
     <td>
-        <a href="@Url.Action("Edit", "Expenditure", new { id = Model.Id} )">
+        <a title="Click to edit!" href="@Url.Action("Edit", "Expenditure", new { id = Model.Id} )">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         </a>
     </td>

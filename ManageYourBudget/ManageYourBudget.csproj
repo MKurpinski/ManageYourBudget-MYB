@@ -345,6 +345,7 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Shared\_StatisticsPartial.cshtml" />
     <Content Include="Views\Shared\_ChartPartial.cshtml" />
+    <Content Include="Views\Shared\_DeleteConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -98,13 +98,6 @@ namespace ManageYourBudget.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            _expenditureService.Delete(id);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult AjaxDelete(int id)
-        {
             var result = _expenditureService.Delete(id);
             return new HttpStatusCodeResult(result ? HttpStatusCode.NoContent : HttpStatusCode.BadRequest);
         }

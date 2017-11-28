@@ -26,6 +26,9 @@
     </div>
     <hr />
 }
+@{
+    Html.RenderPartial("_DeleteConfirmation");
+}
 
 @if (Model.ExpendituresDto.Expenditures.Count > 0)
 {

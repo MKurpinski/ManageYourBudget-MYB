@@ -1,0 +1,30 @@
+﻿<div style="display: none" id="dialog-confirm" title="Delete?">
+    <div><span class="glyphicon-alert glyphicon"></span> Are you sure? Do You <strong>really</strong> want to pernamently delete this?</div>
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+</script>
+<script>
+    $(function () {
+        $( "#dialog-confirm" ).dialog({
+            resizable: false,
+            autoOpen: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: {
+                Cancel: function () {
+                    $( this ).dialog( "close" );
+                },
+                Delete: function () {
+                    var data = $("#dialog-confirm").data("data");
+                    if (data) {
+                        deleteExpenditure(data.id, data.row, data.action);
+                    }
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    } );
+</script>

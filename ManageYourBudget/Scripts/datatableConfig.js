@@ -16,7 +16,6 @@ var initializeDataTable = function () {
 }
 
 var deleteExpenditure = function (expenditureId, row, action) {
-    if (confirm('Are you sure?')) {
         $.ajax({
             url: action + '/' + expenditureId,
             success: function (result) {
@@ -28,5 +27,4 @@ var deleteExpenditure = function (expenditureId, row, action) {
             },
             method: "POST"
         });
-    }
 }

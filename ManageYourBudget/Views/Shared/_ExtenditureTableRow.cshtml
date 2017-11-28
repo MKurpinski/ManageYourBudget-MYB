@@ -13,9 +13,16 @@
     <td>
         <a>
             @{
-                var deleteLink = @Url.Action("AjaxDelete", "Expenditure");
-                <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="event.stopPropagation();deleteExpenditure(@Model.Id, this, '@deleteLink');"></span>
+                var deleteLink = @Url.Action("Delete", "Expenditure");
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="event.stopPropagation();deleteRow(@Model.Id, this, '@deleteLink');"></span>
             }
         </a>
     </td>
 </tr>
+<script>
+    var deleteRow = function (id, row, action) {
+        $("#dialog-confirm").show()
+            .data("data", { row: row, action: action, id: id })
+            .dialog("open");
+    }
+</script>

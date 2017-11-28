@@ -17,7 +17,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Interfaces
         EditExpenditureDto GetExpenditureToEdit(int id);
         ExpenditureDto GetExpenditure(int id);
         void EditExpenditure(EditExpenditureDto expenditureDto);
-        void Delete(int id);
+        bool Delete(int id);
         StatisticsDto GetStatistics(string id, DateRangeDto dataRange);
         IList<SimpleData> GetChartData(string userId, DateRangeDto dataRange);
     }

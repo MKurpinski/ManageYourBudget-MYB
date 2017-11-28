@@ -62,9 +62,9 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             _expenditureRepository.UpdateExpenditure(expenditure);
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            _expenditureRepository.Delete(id);
+            return _expenditureRepository.Delete(id);
         }
 
         public StatisticsDto GetStatistics(string id, DateRangeDto dataRange)

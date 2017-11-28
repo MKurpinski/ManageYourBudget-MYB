@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
@@ -99,6 +100,13 @@ namespace ManageYourBudget.Controllers
         {
             _expenditureService.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AjaxDelete(int id)
+        {
+            var result = _expenditureService.Delete(id);
+            return new HttpStatusCodeResult(result ? HttpStatusCode.NoContent : HttpStatusCode.BadRequest);
         }
     }
 }

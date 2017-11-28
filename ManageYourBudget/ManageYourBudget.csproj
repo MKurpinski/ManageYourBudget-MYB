@@ -211,6 +211,7 @@
     <Compile Include="App_Start\MappingConfiguration.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Attributes\AnonymousOnly.cs" />
     <Compile Include="Configs\FacebookAppBuilderExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\datable.js" />
+    <Content Include="Scripts\datatableConfig.js" />
     <Content Include="Scripts\datepickerConfig.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

@@ -11,8 +11,11 @@
         </a>
     </td>
     <td>
-        <a href="@Url.Action("Index", "Expenditure")">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <a>
+            @{
+                var deleteLink = @Url.Action("AjaxDelete", "Expenditure");
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="event.stopPropagation();deleteExpenditure(@Model.Id, this, '@deleteLink');"></span>
+            }
         </a>
     </td>
 </tr>

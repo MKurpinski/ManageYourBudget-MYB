@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
+using ManageYourBudget.Attributes;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
 using ManageYourBudget.Dtos.Auth;
 using ManageYourBudget.ExternalLogins;
@@ -25,7 +26,7 @@ namespace ManageYourBudget.Controllers
             _authenticationManager = authenticationManager;
         }
 
-
+        [AnonymousOnly]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -33,6 +34,7 @@ namespace ManageYourBudget.Controllers
         }
 
         [HttpPost]
+        [AnonymousOnly]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
@@ -59,6 +61,7 @@ namespace ManageYourBudget.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AnonymousOnly]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -79,11 +82,13 @@ namespace ManageYourBudget.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AnonymousOnly]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
+        [AnonymousOnly]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await _authenticationManager.GetExternalLoginInfoAsync();
@@ -106,6 +111,7 @@ namespace ManageYourBudget.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {

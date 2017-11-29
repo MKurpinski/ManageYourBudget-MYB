@@ -61,7 +61,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
         {
             var user = GetUserDataFromFacebook(loginInfo, FacebookSettings.FacebookTokenClaim, FacebookSettings.FacebookQuery);
 
-            var userFromDb = await GetUserByEmailAsync(user.Email);
+            var userFromDb = GetUserByEmail(user.Email);
 
             if (userFromDb == null)
             {
@@ -78,6 +78,11 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
             var userDto = _mapper.Map<UserDto>(user);
             return userDto;
+        }
+
+        public bool IsEmailAvailable(string email)
+        {
+            return GetUserByEmail(email) == null;
         }
 
         private async Task SignInExternalUser(ExternalLoginInfo loginInfo, User userFromDb)
@@ -109,9 +114,9 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             return user;
         }
 
-        private async Task<User> GetUserByEmailAsync(string email)
+        public User GetUserByEmail(string email)
         {
-            return await _userManager.Users.FirstOrDefaultAsync(x => x.Email == email);
+            return _userManager.Users.FirstOrDefault(x => x.Email == email);
         }
     }
 }

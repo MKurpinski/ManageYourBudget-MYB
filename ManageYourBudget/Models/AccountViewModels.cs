@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ManageYourBudget.Models
 {
@@ -35,6 +36,7 @@ namespace ManageYourBudget.Models
     {
         [Required]
         [EmailAddress]
+        [Remote("IsEmailAvailable", "Account", ErrorMessage = "Email is in use already. Try another.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -53,7 +55,7 @@ namespace ManageYourBudget.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 }

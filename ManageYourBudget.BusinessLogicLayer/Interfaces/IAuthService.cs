@@ -13,5 +13,6 @@ namespace ManageYourBudget.BusinessLogicLayer.Interfaces
         Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto user, string password);
         Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo);
         UserDto GetUserData(string getUserId);
+        bool IsEmailAvailable(string email);
     }
 }

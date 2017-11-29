@@ -18,6 +18,9 @@ namespace ManageYourBudget.Controllers
         private readonly IAuthService _authService;
         private readonly IAuthenticationManager _authenticationManager;
         private readonly IMapper _mapper;
+        private const string LOGIN_KEY = "login_key";
+        private const string LOGIN_ERROR_KEY = "login_key_error";
+        private const string REGISTER_KEY = "register_key";
 
         public AccountController(IAuthService authService, IMapper mapper, IAuthenticationManager authenticationManager)
         {
@@ -30,7 +33,9 @@ namespace ManageYourBudget.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            var loginViewModel = TempData[LOGIN_KEY] as LoginViewModel;
+            ViewBag.Error = TempData[LOGIN_ERROR_KEY] as string;
+            return View(loginViewModel);
         }
 
         [HttpPost]
@@ -40,7 +45,7 @@ namespace ManageYourBudget.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return RedirectInvalidLoginAttempt(model, returnUrl);
             }
 
             var result = await _authService.PasswordSignInAsync(model.Email, model.Password, model.RememberMe);
@@ -50,13 +55,13 @@ namespace ManageYourBudget.Controllers
                 return RedirectToLocal(returnUrl);
             }
 
-            ModelState.AddModelError("", @"Invalid login attempt.");
-            return View(model);
+            return RedirectInvalidLoginAttempt(model, returnUrl);
         }
 
         public ActionResult Register()
         {
-            return View();
+            var registerViewModel = TempData[REGISTER_KEY] as RegisterViewModel;
+            return View(registerViewModel);
         }
 
         [HttpPost]
@@ -66,18 +71,19 @@ namespace ManageYourBudget.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return RedirectToRegisterInvalidAttempt(model);
             }
 
             var user = _mapper.Map<RegisterUserDto>(model);
             var result = await _authService.CreateUserWithPasswordAsync(user, model.Password);
 
-            if (!result.Succeeded)
+            if (result.Succeeded)
             {
-                return View(model);
+                return RedirectToAction("Login");
             }
 
-            return RedirectToAction("Login");
+            TempData[REGISTER_KEY] = model;
+            return RedirectToAction("Register");
         }
 
         [HttpPost]
@@ -119,6 +125,22 @@ namespace ManageYourBudget.Controllers
             return RedirectToAction("Index", "Expenditure");
         }
 
+        public JsonResult IsEmailAvailable(string email)
+        {
+            var isAvailable = _authService.IsEmailAvailable(email);
+            return Json(isAvailable, JsonRequestBehavior.AllowGet);
+        }
+        private ActionResult RedirectToRegisterInvalidAttempt(RegisterViewModel model)
+        {
+            TempData[REGISTER_KEY] = model;
+            return RedirectToAction("Register");
+        }
+        private ActionResult RedirectInvalidLoginAttempt(LoginViewModel model, string returnUrl)
+        {
+            TempData[LOGIN_KEY] = model;
+            TempData[LOGIN_ERROR_KEY] = "Email or password provided is incorrect!";
+            return RedirectToAction("Login", new { returnUrl });
+        }
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))

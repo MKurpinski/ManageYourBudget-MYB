@@ -29,12 +29,14 @@
 @{
     Html.RenderPartial("_DeleteConfirmation");
 }
-
+<a href="@Url.Action("Add", "Expenditure")" class="btn btn-success pull-right plus">
+    <span class="glyphicon glyphicon-plus"></span>
+</a>
 @if (Model.ExpendituresDto.Expenditures.Count > 0)
 {
     <table id="table" class="table table-condensed  table-hover">
         <thead>
-        <tr>
+        <tr> 
             <th>Title</th>
             <th>Amount</th>
             <th>Date</th>
@@ -46,6 +48,19 @@
         <tbody>
         @foreach (var expenditure in Model.ExpendituresDto.Expenditures)
         {
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
+            Html.RenderPartial("_ExtenditureTableRow", expenditure);
             Html.RenderPartial("_ExtenditureTableRow", expenditure);
         }
         </tbody>

@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     background: #F8F8F8;
 }
+
 .custom-navbar {
     background: lightgrey;
 }
@@ -19,13 +20,19 @@
     max-width: 125px;
 }
 
+.plus {
+    border-radius: 100%;
+    margin-bottom: 15px;
+}
+
 .navbar-brand {
     color: white !important;
     background-color: black;
 }
-.navbar-brand:hover {
-    background-color: black !important;
-}
+
+    .navbar-brand:hover {
+        background-color: black !important;
+    }
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

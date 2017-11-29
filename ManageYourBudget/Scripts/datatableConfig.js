@@ -2,6 +2,7 @@
 var initializeDataTable = function () {
     table = $('#table')
         .DataTable({
+            "lengthMenu": [[10, 15], [10, 15]],
             "columnDefs": [
                 { targets: [4, 5], sortable: false }
             ],

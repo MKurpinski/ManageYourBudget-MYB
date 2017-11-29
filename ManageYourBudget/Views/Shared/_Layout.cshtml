@@ -20,6 +20,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Categories", "Index", "Category")</li>
                         <li>@Html.ActionLink("Statistics", "Index", "Statistic")</li>
                         <li>@Html.ActionLink("Add new expenditure", "Add", "Expenditure")</li>
                     </ul>

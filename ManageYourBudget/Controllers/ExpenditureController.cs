@@ -25,14 +25,17 @@ namespace ManageYourBudget.Controllers
 
         public ActionResult Index(DateTime? from, DateTime? to)
         {
-            var expendituresDto = _expenditureService.GetUserExpendituresFromRange(User.Identity.GetUserId(), from, to);
-            var allCategories = _categoryService.GetCategories();
+            var userId = User.Identity.GetUserId();
+
+            var expendituresDto = _expenditureService.GetUserExpendituresFromRange(userId, from, to);
+            var allCategories = _categoryService.GetCategories(userId);
 
             var expendituresViewModel = new ExpendituresViewModel
             {
                 ExpendituresDto = expendituresDto,
                 AvailableCategories = allCategories
             };
+
             return View(expendituresViewModel);
         }
 
@@ -45,7 +48,7 @@ namespace ManageYourBudget.Controllers
 
         public ActionResult Add()
         {
-            var allCategories = _categoryService.GetCategories();
+            var allCategories = _categoryService.GetCategories(User.Identity.GetUserId());
             return View(new AddExpenditureViewModel
             {
                 Categories = allCategories
@@ -57,9 +60,10 @@ namespace ManageYourBudget.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.Categories = _categoryService.GetCategories();
+                model.Categories = _categoryService.GetCategories(User.Identity.GetUserId());
                 return View(model);
             }
+
             var expenditureDto = _mapper.Map<AddExpenditureDto>(model);
             _expenditureService.AddExpenditure(User.Identity.GetUserId(), expenditureDto);
 
@@ -69,9 +73,11 @@ namespace ManageYourBudget.Controllers
         public ActionResult Edit(int id)
         {
             var expenditureToEdit = _expenditureService.GetExpenditureToEdit(id);
-            var allCategories = _categoryService.GetCategories();
+            var allCategories = _categoryService.GetCategories(User.Identity.GetUserId());
+
             var expenditureViewModel = _mapper.Map<EditExpenditureViewModel>(expenditureToEdit);
             expenditureViewModel.Categories = allCategories;
+
             return View(expenditureViewModel);
         }
 
@@ -86,9 +92,10 @@ namespace ManageYourBudget.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.Categories = _categoryService.GetCategories();
+                model.Categories = _categoryService.GetCategories(User.Identity.GetUserId());
                 return View(model);
             }
+
             var expenditureDto = _mapper.Map<EditExpenditureDto>(model);
             _expenditureService.EditExpenditure(expenditureDto);
 

@@ -1,0 +1,21 @@
+﻿@using ManageYourBudget.Dtos.Expenditure
+@model IList<ExpenditureCategoryDto>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2 class="text-center">Your categories</h2>
+
+<div class="categories-container pre-scrollable" id="categories">
+    @foreach (var category in Model)
+    {
+        <hr/>
+        Html.RenderPartial("_CategoryPartial",category);       
+    }
+</div>
+<hr/>
+<h4 class="text-center">Add new</h4>
+@{
+    Html.RenderPartial("_AddCategory", new ExpenditureCategoryDto());
+}

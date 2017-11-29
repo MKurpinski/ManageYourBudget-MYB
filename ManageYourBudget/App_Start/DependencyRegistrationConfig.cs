@@ -6,6 +6,7 @@ using AutoMapper;
 using ManageYourBudget.BusinessLogicLayer.IdentityWrappers;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
 using ManageYourBudget.DataAccessLayer;
+using ManageYourBudget.DataAccessLayer.Interfaces;
 using ManageYourBudget.DataAccessLayer.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;

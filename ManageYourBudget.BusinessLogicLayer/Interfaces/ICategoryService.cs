@@ -5,6 +5,9 @@ namespace ManageYourBudget.BusinessLogicLayer.Interfaces
 {
     public interface ICategoryService: IService
     {
-        IList<ExpenditureCategoryDto> GetCategories();
+        IList<ExpenditureCategoryDto> GetCategories(string userId);
+        void AddDefaultCategories(string userId);
+        void Edit(ExpenditureCategoryDto categoryDto);
+        ExpenditureCategoryDto Add(ExpenditureCategoryDto category, string userId);
     }
 }

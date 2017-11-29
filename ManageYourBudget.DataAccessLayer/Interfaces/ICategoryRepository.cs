@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ManageYourBudget.DataAccessLayer.Models;
 
 namespace ManageYourBudget.DataAccessLayer.Interfaces
 {
     public interface ICategoryRepository: IRepository
     {
-        IList<ExpenditureCategory> GetCategories();
+        IList<ExpenditureCategory> GetCategories(string userId);
+        void AddRange(IList<ExpenditureCategory> category);
+        void Update(ExpenditureCategory category);
+        ExpenditureCategory Add(ExpenditureCategory category);
     }
 }

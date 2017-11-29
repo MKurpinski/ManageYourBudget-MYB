@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Facebook;
@@ -14,20 +12,22 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace ManageYourBudget.BusinessLogicLayer.Concrete
 {
-    public class AuthService: IAuthService
+    public class AuthService : IAuthService
     {
         private readonly ApplicationSignInManager _signInManager;
         private readonly ApplicationUserManager _userManager;
         private readonly IMapper _mapper;
+        private readonly ICategoryService _categoryService;
         private const string EMAIL_KEY = "email";
         private const string FIRSTNAME_KEY = "first_name";
         private const string LASTNAME_KEY = "last_name";
 
-        public AuthService(ApplicationSignInManager signInManager, ApplicationUserManager userManager, IMapper mapper)
+        public AuthService(ApplicationSignInManager signInManager, ApplicationUserManager userManager, IMapper mapper, ICategoryService categoryService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _mapper = mapper;
+            _categoryService = categoryService;
         }
 
         public async Task<SignInStatus> PasswordSignInAsync(string email, string password, bool rememberMe)
@@ -51,10 +51,15 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             await _signInManager.SignInAsync(user, false, false);
         }
 
-        public Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto registerUserDto, string password)
+        public async Task<IdentityResult> CreateUserWithPasswordAsync(RegisterUserDto registerUserDto, string password)
         {
             var user = _mapper.Map<User>(registerUserDto);
-            return _userManager.CreateAsync(user, password);
+            var result = await _userManager.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                _categoryService.AddDefaultCategories(user.Id);
+            }
+            return result;
         }
 
         public async Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo)
@@ -95,6 +100,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
         {
             await _userManager.CreateAsync(user);
             await _userManager.AddLoginAsync(user.Id, loginInfo.Login);
+            _categoryService.AddDefaultCategories(user.Id);
         }
 
         private static User GetUserDataFromFacebook(ExternalLoginInfo loginInfo, string facebookTokenClaim,

@@ -115,6 +115,7 @@
     <Compile Include="Concrete\CategoryService.cs" />
     <Compile Include="Concrete\DataService.cs" />
     <Compile Include="Concrete\ExpenditureService.cs" />
+    <Compile Include="DefaultCategories.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="IdentityWrappers\ApplicationSigInManager.cs" />
@@ -141,9 +142,6 @@
       <Project>{6803CE79-B3C8-4F3E-B2E8-29A95D407993}</Project>
       <Name>ManageYourBudget.Dtos</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\Chart.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

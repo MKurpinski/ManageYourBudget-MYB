@@ -8,6 +8,12 @@
     background: lightgrey;
 }
 
+.categories-container {
+    max-height: 70vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
 .remember-container {
     margin-left: 20px;
 }

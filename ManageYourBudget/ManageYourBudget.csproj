@@ -577,17 +577,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <Content Include="Views\Shared\_ExtenditureTableRow.cshtml" />
+    <Content Include="Views\Expenditure\_ExtenditureTableRow.cshtml" />
     <Content Include="Views\Expenditure\Add.cshtml" />
     <Content Include="Views\Expenditure\Edit.cshtml" />
     <Content Include="Views\Expenditure\Details.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
-    <Content Include="Views\Shared\_StatisticsPartial.cshtml" />
-    <Content Include="Views\Shared\_ChartPartial.cshtml" />
-    <Content Include="Views\Shared\_DeleteConfirmation.cshtml" />
+    <Content Include="Views\Statistic\_StatisticsPartial.cshtml" />
+    <Content Include="Views\Statistic\_ChartPartial.cshtml" />
+    <Content Include="Views\Expenditure\_DeleteConfirmation.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Shared\_CategoryPartial.cshtml" />
-    <Content Include="Views\Shared\_AddCategory.cshtml" />
+    <Content Include="Views\Category\_CategoryPartial.cshtml" />
+    <Content Include="Views\Category\_AddCategory.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>

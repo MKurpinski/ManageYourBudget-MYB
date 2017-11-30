@@ -7,9 +7,11 @@
             data: formData,
             success: function () {
                 $("#" + id).val("Saved!");
+                $("#" + id).prop("disabled", true);
                 setTimeout(function () {
-                        $("#" + id).val("Save");
-                    },
+                    $("#" + id).val("Save");
+                    $("#" + id).prop("disabled", false);
+                },
                     2000);
             }
         });

@@ -18,6 +18,18 @@
     margin-left: 20px;
 }
 
+.button-facebook {
+    background: #3b5998;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.button-google {
+    background: #d34836;
+    color: white;
+    margin-bottom: 15px;
+} 
+
 .no-padding-left {
     padding-left: 0;
 }

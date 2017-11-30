@@ -13,7 +13,7 @@
     <td>
         <a>
             @{
-                var deleteLink = @Url.Action("Delete", "Expenditure");
+                var deleteLink = Url.Action("Delete", "Expenditure");
                 <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="event.stopPropagation();deleteRow(@Model.Id, this, '@deleteLink');"></span>
             }
         </a>

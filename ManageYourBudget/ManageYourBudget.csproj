@@ -213,6 +213,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\AnonymousOnly.cs" />
     <Compile Include="Configs\FacebookAppBuilderExtensions.cs" />
+    <Compile Include="Configs\GoogleAppBuilderExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />

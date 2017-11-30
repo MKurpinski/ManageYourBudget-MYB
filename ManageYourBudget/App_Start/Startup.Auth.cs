@@ -31,6 +31,7 @@ namespace ManageYourBudget
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             app.UseFacebook();
+            app.UseGoogle();
         }
     }
 }

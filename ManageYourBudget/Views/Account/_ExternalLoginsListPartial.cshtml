@@ -1,20 +1,13 @@
-﻿@model ManageYourBudget.Models.ExternalLoginListViewModel
-@using Microsoft.Owin.Security
-<h2 class="text-center">Use external login provider</h2>
+﻿<h2 class="text-center">Use external login provider</h2>
 <hr />
-@{
-    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
     {
         @Html.AntiForgeryToken()
         <div>
             <p>
-                @foreach (var p in loginProviders)
-                {
-                    <button type="submit" class="btn button-full"  name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">Log in with @p.AuthenticationType!</button>
-                }
+                    <button type="submit" class="btn button-full button-facebook"  name="provider" value="Facebook" title="Log in using your Facebook account">Log in with Facebook!</button>
+                    <button type="submit" class="btn button-full button-google"  name="provider" value="Google" title="Log in using your Google account">Log in with Google!</button>
             </p>
         </div>
     }
-}
 <hr/>

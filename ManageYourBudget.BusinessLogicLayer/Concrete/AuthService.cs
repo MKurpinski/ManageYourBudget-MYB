@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Facebook;
+using ManageYourBudget.BusinessLogicLayer.Enums;
 using ManageYourBudget.BusinessLogicLayer.IdentityWrappers;
 using ManageYourBudget.BusinessLogicLayer.Interfaces;
 using ManageYourBudget.BusinessLogicLayer.Settings;
@@ -64,7 +67,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
 
         public async Task LogInOrRegisterUserAsync(ExternalLoginInfo loginInfo)
         {
-            var user = GetUserDataFromFacebook(loginInfo, FacebookSettings.FacebookTokenClaim, FacebookSettings.FacebookQuery);
+            var user = GetUserData(loginInfo);
 
             var userFromDb = GetUserByEmail(user.Email);
 
@@ -76,6 +79,46 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             {
                 await SignInExternalUser(loginInfo, userFromDb);
             }
+        }
+
+        private User GetUserData(ExternalLoginInfo loginInfo)
+        {
+            User user = null;
+
+            if(!Enum.TryParse<LoginProvider>(loginInfo.Login.LoginProvider, out var providerEnum))
+            {
+                return null;
+            }
+
+            switch (providerEnum)
+            {
+                case LoginProvider.Facebook:
+                {
+                    user = GetUserDataFromFacebook(loginInfo, FacebookSettings.FacebookTokenClaim, FacebookSettings.FacebookQuery);
+                    break;
+                }
+                case LoginProvider.Google:
+                {
+                    user = GetUserDataFromGoogle(loginInfo);
+                    break;
+                }
+            }
+            return user;
+        }
+
+        private User GetUserDataFromGoogle(ExternalLoginInfo loginInfo)
+        {
+            var firstName = loginInfo.ExternalIdentity.Claims.First(x => x.Type == ClaimTypes.GivenName);
+            var lastName = loginInfo.ExternalIdentity.Claims.First(x => x.Type == ClaimTypes.Surname);
+            var emailAdress = loginInfo.ExternalIdentity.Claims.First(x => x.Type == ClaimTypes.Email);
+            var user = new User
+            {
+                FirstName = firstName?.Value,
+                Email = emailAdress?.Value,
+                LastName = lastName?.Value,
+                UserName = emailAdress?.Value
+            };
+            return user;
         }
 
         public UserDto GetUserData(string id)

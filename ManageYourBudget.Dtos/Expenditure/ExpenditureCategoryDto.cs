@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Build.Framework;
+﻿using Microsoft.Build.Framework;
 
 namespace ManageYourBudget.Dtos.Expenditure
-{
+{ 
     public class ExpenditureCategoryDto
     {
+        private const string BLUE_COLOR = "#2b42ef";
+        public ExpenditureCategoryDto()
+        {
+            ChartColor = BLUE_COLOR;
+        }
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }

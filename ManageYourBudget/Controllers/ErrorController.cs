@@ -4,9 +4,9 @@ namespace ManageYourBudget.Controllers
 {
     public class ErrorController : Controller
     {
-        public ActionResult Index()
+        public ActionResult NotFound()
         {
-            return View("Error");
+            return View();
         }
     }
 }

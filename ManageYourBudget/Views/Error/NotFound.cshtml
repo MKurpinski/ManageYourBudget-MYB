@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Not Found";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="error-template">
+            <h1>Oops!</h1>
+            <h2 class="text-danger">404 Not Found</h2>
+            <div>
+                Sorry, an error has occured, Requested page not found!<br>
+            </div>
+            <div class="error-actions">
+                <a href="@Url.Action("Index","Expenditure")" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-home"></i> Take Me Home </a>
+            </div>
+        </div>
+    </div>
+</div>

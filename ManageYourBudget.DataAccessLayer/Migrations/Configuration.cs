@@ -8,40 +8,5 @@ namespace ManageYourBudget.DataAccessLayer.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
-
-        protected override void Seed(ManageYourBudget.DataAccessLayer.ApplicationDbContext context)
-        {
-                //context.Categories.AddOrUpdate(
-                //  p => p.Name,
-                //  new ExpenditureCategory
-                //  {
-                //      Name = "Bill",
-                //      ChartColor = ColorTranslator.ToHtml(Color.Aqua)
-                //  },
-                //  new ExpenditureCategory
-                //  {
-                //      Name = "Eating",
-                //      ChartColor = ColorTranslator.ToHtml(Color.Green)
-                //  },
-                //  new ExpenditureCategory
-                //  {
-                //      Name = "Car",
-                //      ChartColor = ColorTranslator.ToHtml(Color.Black)
-                //  },
-                //  new ExpenditureCategory
-                //  {
-                //      Name = "Entertainment",
-                //      ChartColor = ColorTranslator.ToHtml(Color.Chocolate)
-                //  },
-                //  new ExpenditureCategory
-                //  {
-                //      Name = "Education",
-                //      ChartColor = ColorTranslator.ToHtml(Color.Red)
-                //  },
-                //  new ExpenditureCategory { Name = "Other",
-                //      ChartColor = ColorTranslator.ToHtml(Color.RoyalBlue)
-                //  }
-                //);
-        }
     }
 }

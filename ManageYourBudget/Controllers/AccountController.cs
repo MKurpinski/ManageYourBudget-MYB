@@ -130,17 +130,20 @@ namespace ManageYourBudget.Controllers
             var isAvailable = _authService.IsEmailAvailable(email);
             return Json(isAvailable, JsonRequestBehavior.AllowGet);
         }
+
         private ActionResult RedirectToRegisterInvalidAttempt(RegisterViewModel model)
         {
             TempData[REGISTER_KEY] = model;
             return RedirectToAction("Register");
         }
+
         private ActionResult RedirectInvalidLoginAttempt(LoginViewModel model, string returnUrl)
         {
             TempData[LOGIN_KEY] = model;
             TempData[LOGIN_ERROR_KEY] = "Email or password provided is incorrect!";
             return RedirectToAction("Login", new { returnUrl });
         }
+
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))

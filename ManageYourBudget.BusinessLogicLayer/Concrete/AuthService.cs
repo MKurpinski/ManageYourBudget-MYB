@@ -101,6 +101,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             await _userManager.CreateAsync(user);
             await _userManager.AddLoginAsync(user.Id, loginInfo.Login);
             _categoryService.AddDefaultCategories(user.Id);
+            await SignUserAsync(user);
         }
 
         private static User GetUserDataFromFacebook(ExternalLoginInfo loginInfo, string facebookTokenClaim,

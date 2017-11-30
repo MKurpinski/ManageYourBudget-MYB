@@ -28,24 +28,24 @@ namespace ManageYourBudget.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(DateRangeDto viewModel)
+        public ActionResult Index(DateRangeDto dataRange)
         {
             return RedirectToAction("Index",
-                new { to = viewModel.To, from = viewModel.From });
+                new { to = dataRange.To, from = dataRange.From });
         }
 
         [ChildActionOnly]
         public ActionResult GetDataForChart(DateRangeDto dataRange)
         {
             var statistics = _expenditureService.GetChartData(User.Identity.GetUserId(), dataRange);
-            return View("_ChartPartial", statistics);
+            return PartialView("_ChartPartial", statistics);
         }
 
         [ChildActionOnly]
         public ActionResult GetStatistics(DateRangeDto dataRange)
         {
             var statistics = _expenditureService.GetStatistics(User.Identity.GetUserId(), dataRange);
-            return View("_StatisticsPartial", statistics);
+            return PartialView("_StatisticsPartial", statistics);
         }
     }
 }

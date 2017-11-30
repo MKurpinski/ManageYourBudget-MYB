@@ -11,18 +11,17 @@ var initializeDataTable = function () {
                 localStorage.setItem('DataTables', JSON.stringify(oData));
             },
             "fnStateLoad": function () {
-                return JSON.parse(localStorage.getItem('DataTables'));
+                return JSON.parse(localStorage.getItem("DataTables"));
             }
         });
 }
 
 var deleteExpenditure = function (expenditureId, row, action) {
         $.ajax({
-            url: action + '/' + expenditureId,
-            success: function (result) {
-                console.log(result);
+            url: action + "/" + expenditureId,
+            success: function () {
                 table
-                    .row($(row).parents('tr'))
+                    .row($(row).parents("tr"))
                     .remove()
                     .draw();
             },

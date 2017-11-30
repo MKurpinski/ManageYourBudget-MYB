@@ -46,6 +46,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
   </ItemGroup>
@@ -72,6 +73,18 @@
     <Compile Include="Migrations\201711290747240_customCategories.Designer.cs">
       <DependentUpon>201711290747240_customCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301356452_validation.cs" />
+    <Compile Include="Migrations\201711301356452_validation.Designer.cs">
+      <DependentUpon>201711301356452_validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301357375_validation-fix.cs" />
+    <Compile Include="Migrations\201711301357375_validation-fix.Designer.cs">
+      <DependentUpon>201711301357375_validation-fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301400547_validation-part3.cs" />
+    <Compile Include="Migrations\201711301400547_validation-part3.Designer.cs">
+      <DependentUpon>201711301400547_validation-part3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Expenditure.cs" />
     <Compile Include="Models\ExpenditureCategory.cs" />
@@ -94,6 +107,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290747240_customCategories.resx">
       <DependentUpon>201711290747240_customCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301356452_validation.resx">
+      <DependentUpon>201711301356452_validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301357375_validation-fix.resx">
+      <DependentUpon>201711301357375_validation-fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301400547_validation-part3.resx">
+      <DependentUpon>201711301400547_validation-part3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -1,4 +1,4 @@
-﻿using Microsoft.Build.Framework;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ManageYourBudget.Dtos.Expenditure
 { 
@@ -10,7 +10,8 @@ namespace ManageYourBudget.Dtos.Expenditure
             ChartColor = BLUE_COLOR;
         }
         public int Id { get; set; }
-        [Required]
+        [Microsoft.Build.Framework.Required]
+        [MaxLength(30)]
         public string Name { get; set; }
         public string UserId { get; set; }
         public string ChartColor { get; set; }

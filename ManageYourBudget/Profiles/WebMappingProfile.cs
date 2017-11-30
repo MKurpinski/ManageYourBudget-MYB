@@ -13,6 +13,7 @@ namespace ManageYourBudget.Profiles
             CreateMap<AddExpenditureViewModel, AddExpenditureDto>();
             CreateMap<EditExpenditureViewModel, EditExpenditureDto>();
             CreateMap<EditExpenditureDto, EditExpenditureViewModel>();
+            CreateMap<UserDto, UserInfoViewModel>().ForMember(dest => dest.Fullname, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
         }
     }
 }

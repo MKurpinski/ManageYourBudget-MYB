@@ -131,6 +131,15 @@ namespace ManageYourBudget.Controllers
             return Json(isAvailable, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize]
+        [ChildActionOnly]
+        public ActionResult GetUserInfo()
+        {
+            var userDto = _authService.GetUserData(User.Identity.GetUserId());
+            var viewModel = _mapper.Map<UserInfoViewModel>(userDto);
+            return PartialView("_UserInfoPartial", viewModel);
+        }
+
         private ActionResult RedirectToRegisterInvalidAttempt(RegisterViewModel model)
         {
             TempData[REGISTER_KEY] = model;

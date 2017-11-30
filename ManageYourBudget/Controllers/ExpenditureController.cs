@@ -16,7 +16,6 @@ namespace ManageYourBudget.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
         private const string ADD_KEY = "add_key";
-        private const string EDIT_KEY = "edit_key";
 
         public ExpenditureController(IExpenditureService expenditureService, ICategoryService categoryService, IMapper mapper)
         {

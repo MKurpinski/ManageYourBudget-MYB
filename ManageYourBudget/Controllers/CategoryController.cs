@@ -25,6 +25,10 @@ namespace ManageYourBudget.Controllers
         [HttpPost]
         public ActionResult Edit(ExpenditureCategoryDto category)
         {
+            if (!ModelState.IsValid)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             _categoryService.Edit(category);
             return new HttpStatusCodeResult(HttpStatusCode.NoContent);
         }
@@ -32,6 +36,10 @@ namespace ManageYourBudget.Controllers
         [HttpPost]
         public ActionResult Add(ExpenditureCategoryDto category)
         {
+            if (!ModelState.IsValid)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             var addedCategory = _categoryService.Add(category, User.Identity.GetUserId());
             return PartialView("_CategoryPartial", addedCategory);
         }

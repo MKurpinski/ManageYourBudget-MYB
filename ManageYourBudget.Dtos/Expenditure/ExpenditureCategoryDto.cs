@@ -10,7 +10,7 @@ namespace ManageYourBudget.Dtos.Expenditure
             ChartColor = BLUE_COLOR;
         }
         public int Id { get; set; }
-        [Microsoft.Build.Framework.Required]
+        [Required]
         [MaxLength(30)]
         public string Name { get; set; }
         public string UserId { get; set; }

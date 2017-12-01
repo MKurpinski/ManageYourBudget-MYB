@@ -28,7 +28,7 @@
     background: #d34836;
     color: white;
     margin-bottom: 15px;
-} 
+}
 
 .no-padding-left {
     padding-left: 0;
@@ -48,23 +48,20 @@
     background-color: black;
 }
 
-    .navbar-brand:hover {
-        background-color: black !important;
-    }
-/* Set padding to keep content from hitting the edges */
+.navbar-brand:hover {
+    background-color: black !important;
+
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 .button-full {
     width: 100%;
 }
@@ -88,14 +85,16 @@
     padding: 40px 15px;
     text-align: center;
 }
+
 .error-actions {
-    margin-top:15px;
-    margin-bottom:15px;
-}
-.error-actions .btn {
-     margin-right:10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
+    .error-actions .btn {
+        margin-right: 10px;
+    }
+
 #dialog-confirm {
-    display: none   
+    display: none
 }

@@ -74,7 +74,7 @@ namespace ManageYourBudget.BusinessLogicLayer.Concrete
             {
                 ExpidituresCount = expendirues.Count,
                 SumOfExpenditures = expendirues.Sum(x => x.Amount),
-                MostExpensiveExpenditures = _mapper.Map<List<ExpenditureDto>>(expendirues.OrderBy(x => x.Amount).Take(NUMBER_OF_MOST_EXPENSIVE_EXPENDITURES).ToList())
+                MostExpensiveExpenditures = _mapper.Map<List<ExpenditureDto>>(expendirues.OrderByDescending(x => x.Amount).Take(NUMBER_OF_MOST_EXPENSIVE_EXPENDITURES).ToList())
             };
             return statisticsDto;
         }

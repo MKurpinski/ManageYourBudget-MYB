@@ -77,7 +77,7 @@ namespace ManageYourBudget.Controllers
             var expenditureDto = _mapper.Map<AddExpenditureDto>(model);
             _expenditureService.AddExpenditure(User.Identity.GetUserId(), expenditureDto);
 
-            return RedirectToAction("Index", new { from = model.Date});
+            return RedirectToAction("Index", new { from = new DateTime(model.Date.Year, model.Date.Month, 1)});
         }
 
         public ActionResult Edit(int id)

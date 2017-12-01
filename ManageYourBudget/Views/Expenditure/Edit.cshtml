@@ -16,7 +16,7 @@
                 <div class="panel-heading text-center">@Html.LabelFor(m => m.Title, new { @class = "control-label" })</div>
                 <div class="panel-body">
                     <div>
-                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control full-width" })
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control full-width", autocomplete = "off" })
                         <div class="text-danger">
                             @Html.ValidationMessageFor(m => m.Title)
                         </div>
@@ -27,7 +27,7 @@
                 <div class="panel-heading text-center">@Html.LabelFor(m => m.Description, new { @class = "control-label" })</div>
                 <div class="panel-body">
                     <div>
-                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control full-width" })
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control full-width", autocomplete = "off" })
                         <div class="text-danger">
                             @Html.ValidationMessageFor(m => m.Description)
                         </div>

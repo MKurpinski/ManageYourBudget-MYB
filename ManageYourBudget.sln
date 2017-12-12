@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageYourBudget.BusinessLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageYourBudget.Dtos", "ManageYourBudget.Dtos\ManageYourBudget.Dtos.csproj", "{6803CE79-B3C8-4F3E-B2E8-29A95D407993}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{5442C3AD-C484-4453-B6BE-07D1CD397571}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Desktop\list-of-categories.png = ..\..\Desktop\list-of-categories.png
+		..\..\Desktop\main-screen.PNG = ..\..\Desktop\main-screen.PNG
+		..\..\Desktop\statistics.PNG = ..\..\Desktop\statistics.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

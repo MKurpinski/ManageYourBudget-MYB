@@ -25,8 +25,9 @@ A step by step series of examples that tell you have to get a development env ru
 2. Open solution in Visual Studio
 3. Restore Nuget Packages
 4. Open Package Manager Console and type 'Update-Database' to create database
-5. Click F5 to run the application
-6. Open your default browser and type adress: [https://localhost:44357/](https://localhost:44357/)
+5. Open web.config in project ManageYourBudget and swap the three stars with your AppId and Client secret obtained from Facebook and Google
+6. Click F5 to run the application
+7. Open your default browser and type adress: [https://localhost:44357/](https://localhost:44357/)
 
 ## Demo
 

@@ -32,10 +32,11 @@ A step by step series of examples that tell you have to get a development env ru
 ## Demo
 
 ### Main screen
-
+![alt text](https://raw.githubusercontent.com/MKurpinski/ManageYourBudget/master/screenshots/main-screen.PNG "Main screen")
 ### Categories of expenditures
-
+![alt text](https://raw.githubusercontent.com/MKurpinski/ManageYourBudget/master/screenshots/list-of-categories.png "Categories")
 ### Statistics
+![alt text](https://raw.githubusercontent.com/MKurpinski/ManageYourBudget/master/screenshots/statistics.PNG "Statistics")
 
 
 ## Deployment
